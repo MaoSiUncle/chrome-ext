@@ -1,0 +1,38 @@
+{
+  "name": "ChangeNavigator",
+  "version": "1.0.0",
+  "manifest_version": 2,
+  "description": "set navigator.platform  you can print window.navigator.platform to see",
+  "browser_action": {
+    "default_icon": "n16.png",
+    "default_title": "change platform",
+    "default_popup": "popup.html"
+  },
+  "icons": {
+    "16": "n16.png",
+    "48": "n48.png",
+    "128": "n128.png"
+  },
+  "permissions": [
+    "webRequest",
+    "webRequestBlocking",
+    "storage",
+    "<all_urls>"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*/*"
+      ],
+      "js": [
+        "index.js"
+      ],
+      "run_at": "document_start",
+      "all_frames": true
+    }
+  ],
+  "web_accessible_resources": [
+    "change_android.js",
+    "change_iphone.js"
+  ]
+}
